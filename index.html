@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Enhanced Music Player 🎵</h1>
+            <button id="theme-toggle">🌞</button>
+        </header>
+
+        <!-- Music Player Section -->
+        <div id="music-player">
+            <div id="player-info">
+                <img id="cover-image" class="cover-img" src="" alt="Album Cover">
+                <h2 id="song-title">Song Title</h2>
+                <p id="artist-name">Artist Name</p>
+            </div>
+
+            <audio id="audio" src=""></audio>
+
+            <div class="controls">
+                <button id="shuffle" class="btn">🔀</button>
+                <button id="prev" class="btn">⏮️</button>
+                <button id="play" class="btn">▶️</button>
+                <button id="next" class="btn">⏭️</button>
+                <button id="repeat" class="btn">🔁</button>
+                <button id="favorite" class="btn">❤️</button>
+            </div>
+
+            <input type="range" id="progress" value="0">
+            <div class="time">
+                <span id="current-time">0:00</span>  <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <!-- Search Box -->
+        <div>
+            <input type="text" id="search-bar" placeholder="Search for a song..." oninput="searchSong()">
+        </div>
+
+        <!-- Playlist Section -->
+        <div id="playlist">
+            <h3>Playlist</h3>
+            <div id="song-list"></div>
+        </div>
+        <!-- Search Results Section -->
+        <div id="search-results">
+            <h3>Search Results</h3>
+            <div id="search-list"></div>
+        </div>
+
+        <!-- Favorites Library Section -->
+        <div class="favorites-library">
+            <h3>❤️ Favorite Songs Library</h3>
+            <ul id="favorites-list"></ul>
+        </div>
+
+        <div class="volume-container">
+            <button id="volume-btn" class="volume-btn">🔊</button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Enhanced Music Player. Built with ❤️ by viswa.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+<!-- <audio src=""></audio> -->
