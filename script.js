@@ -247,14 +247,14 @@
 // displaySongs(songs);
 
 const songs = [
-    { title: "Idhuvum kadandhu pogum, Idhuvum kadandhu pogum..", artist: "Sid Sriram", src: "Idhuvum-Kadandhu-Pogum-(The-Healing-Song)-MassTamilan.fm.mp3", cover:"https://th.bing.com/th/id/OIP.CLJus1mG7eLOe9jVavfS_AHaHa?rs=1&pid=ImgDetMain", lyrics: "Lyrics for Song 1..." },
+    { title: "Idhuvum kadandhu pogum, Idhuvum kadandhu pogum..", artist: "Sid Sriram", src: "Idhuvum-Kadandhu-Pogum-(The-Healing-Song)-MassTamilan.fm.mp3", cover:"re.jpg", lyrics: "Lyrics for Song 1..." },
     { title: "Nallavannu Solvaanga Nambidathinga..", artist: "Devi Sri Prasad", src: "Nallavannu-Solvanga.mp3", cover:"https://th.bing.com/th/id/OIP.iLhbAoyetCLq3Ab_JzeEXgAAAA?w=199&h=200&c=7&r=0&o=5&dpr=1.4&pid=1.7", lyrics: "Lyrics for Song 2..." },
     { title: "Seval kodi parakkuthadaa ,Sernthu idi idikkuthadaa..", artist: "Yuvan Shankar Raja", src: "Seval Kodi.mp3", cover:"https://th.bing.com/th/id/OIP.gSxTfpRem7dUCZPu9sABFwHaHa?w=157&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7", lyrics: "Lyrics for Song 3..." },
     { title: "Azhage Azhage..", artist: "Hip Hop adhi", src: "Azhage.mp3", cover:"https://th.bing.com/th/id/OIP.GxKNZiXpL1ulsyxAiENsyQHaJQ?w=191&h=239&c=7&r=0&o=5&dpr=1.4&pid=1.7", lyrics: "Lyrics for Song 4..." },
     { title: "Yelae yelae dosthu da,Naatkkal pudhusu aachu..", artist: "Harris Jayara", src: "Yaelae-Yealae-Dhosthu-Da.mp3", cover:"https://th.bing.com/th/id/OIP.cU7F2TtVps_EMjY3Wdj-fQHaI9?w=139&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7", lyrics: "Lyrics for Song 5..." },
-    { title: "Nee nathaswaram pola vanthaaa…aa..,Nee nathaswaram pola vantha..", artist: "A.R. Rahman", src: "Valayapatti-tamile.mp3", cover:"https://th.bing.com/th/id/OIP.lZ01KKHlUziFOM8sNPzyqwHaE8?w=191&h=127&c=7&r=0&o=5&dpr=1.4&pid=1.7", lyrics: "Lyrics for Song 6..." },
-    { title: "Neela nilave ,.Ninavil azhake,.Thaaram arike..", artist: "Kapil Kapilan", src: "Neela-Nilave.mp3", cover:"download.jpg", lyrics: "Lyrics for Song 7..." },
-    { title: "Maduraikku pogathadi, Anga malli poo kanna vekkum..", artist: "A.R. Rahman", src: "Maduraikku_Pogathadi.mp3", cover:"https://th.bing.com/th?id=OIP.WSOjqjS0g_ZHAeR7LeMoEgHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&dpr=1.4&pid=3.1&rm=2", lyrics: "Lyrics for Song 8..." },
+    { title: "Nee nathaswaram pola vanthaaa…aa..,Nee nathaswaram pola vantha..", artist: "A.R. Rahman", src: "Valayapatti-tamile.mp3", cover:"nee.jpg", lyrics: "Lyrics for Song 6..." },
+    { title: "Neela nilave ,.Ninavil azhake,.Thaaram arike..", artist: "Kapil Kapilan", src: "Neela-Nilave.mp3", cover:"rdx.jpeg", lyrics: "Lyrics for Song 7..." },
+    { title: "Maduraikku pogathadi, Anga malli poo kanna vekkum..", artist: "A.R. Rahman", src: "Maduraikku_Pogathadi.mp3", cover:"madura.jpg", lyrics: "Lyrics for Song 8..." },
     
 ];
 
@@ -382,10 +382,17 @@ favoritesListEl.addEventListener('click', (e) => {
 
 // Volume Slider functionality
 volumeSlider.addEventListener('input', () => {
-    audio.volume = volumeSlider.value;
-    updateVolumeIcon();
-    updateSliderColor();
+    const volume = volumeSlider.value; // Get the volume value (0 to 1)
+    audio.volume = volume;
+
+    // Update the slider's background based on the volume
+    const percentage = volume * 100; // Convert volume to percentage (0 to 100)
+    volumeSlider.style.background = `linear-gradient(to right, #28a745 ${percentage}%, #6c757d ${percentage}%)`;
+
+    updateVolumeIcon(); // Update the volume icon based on the level
 });
+
+
 
 // Mute/Unmute button functionality
 volumeBtn.addEventListener('click', () => {
